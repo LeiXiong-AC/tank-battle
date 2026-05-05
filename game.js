@@ -543,6 +543,8 @@ function gameLoop() {
 lives = 3;
 level = 1;
 kills = 0;
+enemies = [];
+enemiesRemaining = 0;
 updateUI();
 
 document.getElementById('startBtn').onclick = () => {
