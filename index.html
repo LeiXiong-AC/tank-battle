@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>坦克大战</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1a1a2e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Courier New', monospace;
+      color: #eee;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #f0a500;
+      text-shadow: 0 0 10px #f0a500;
+      margin-bottom: 12px;
+      letter-spacing: 4px;
+    }
+    #gameCanvas {
+      border: 3px solid #f0a500;
+      box-shadow: 0 0 20px rgba(240,165,0,0.4);
+      display: block;
+    }
+    #ui {
+      display: flex;
+      gap: 40px;
+      margin-top: 12px;
+      font-size: 1rem;
+      color: #ccc;
+    }
+    #ui span { color: #f0a500; font-weight: bold; }
+    #controls {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: #888;
+      text-align: center;
+    }
+    #overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.7);
+      border-radius: 4px;
+    }
+    #overlay h2 { font-size: 2.5rem; color: #f0a500; margin-bottom: 20px; }
+    #overlay p  { font-size: 1rem; color: #ccc; margin-bottom: 8px; }
+    #overlay button {
+      margin-top: 20px;
+      padding: 10px 30px;
+      font-size: 1rem;
+      background: #f0a500;
+      color: #1a1a2e;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    #overlay button:hover { background: #ffd700; }
+    #canvasWrap { position: relative; }
+  </style>
+</head>
+<body>
+  <h1>🎮 坦克大战</h1>
+  <div id="canvasWrap">
+    <canvas id="gameCanvas" width="600" height="600"></canvas>
+    <div id="overlay">
+      <h2>坦克大战</h2>
+      <p>🕹️ WASD / 方向键 移动坦克</p>
+      <p>🔫 空格键 发射子弹</p>
+      <p>消灭所有敌方坦克，保护基地！</p>
+      <button id="startBtn">开始游戏</button>
+    </div>
+  </div>
+  <div id="ui">
+    <div>生命：<span id="lives">3</span></div>
+    <div>关卡：<span id="level">1</span></div>
+    <div>击毁：<span id="kills">0</span></div>
+    <div>敌方剩余：<span id="enemies">0</span></div>
+  </div>
+  <div id="controls">
+    WASD / 方向键 移动 &nbsp;|&nbsp; 空格键 射击 &nbsp;|&nbsp; P 暂停
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
